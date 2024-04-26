@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# django provide different applications --> I can use it in my project
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,6 +73,7 @@ WSGI_APPLICATION = 'iti.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# default db configuration
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
