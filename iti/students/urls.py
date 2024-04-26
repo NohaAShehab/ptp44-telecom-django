@@ -9,6 +9,6 @@ urlpatterns = [
     # path('',landing,name='landing' ),
     path('students',students_list, name='students_list' ),
     path('students/<int:id>', student_info, name='students_info' ),
-    path('t', students_landing,name ='students_landing' ),
+    path('index', students_landing,name ='students_landing' ),
 
 ]
