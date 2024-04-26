@@ -25,5 +25,6 @@ urlpatterns = [
     ### tracks application
     path('tracks',track_landing,name='track_landing' ),
     ## include url configuration for students app.
-    path('students/', include('students.urls'))
+    path('students/', include('students.urls')),
+    path('tracks/', include('tracks.urls')),
 ]

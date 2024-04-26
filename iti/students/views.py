@@ -48,6 +48,9 @@ def student_info(request, id ):
 
 
 
+def students_landing(request):
+    # return template ?
+    return render(request, "students/landing.html")
 
 
 
