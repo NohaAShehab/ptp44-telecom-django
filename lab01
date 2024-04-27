@@ -1,0 +1,22 @@
+
+1- create venv
+2- install django
+3- startproject bookstore
+4- create the following in this project
+    1- page contact us --> any data
+    2- aboutus  ---> any data
+    3- bookindex ==> display books in a table
+        book {id , title, author , no_of_pages, image , price}
+
+       when you click show --> on specific book
+       redirect to new page
+       display book details in a card
+       https://getbootstrap.com/docs/5.3/components/card/#about
+
+general notes
+   1- use url include files
+   2- use urlnames
+   3- all pages must have the same navbar
+   4- you must use django templates directives
+
+
