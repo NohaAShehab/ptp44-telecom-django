@@ -1,0 +1,6 @@
+
+to serve static images / css/ js
+---> add these files to folder static
+
+after adding static folder to the application you must
+restart the server
