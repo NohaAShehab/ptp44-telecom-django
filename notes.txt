@@ -39,6 +39,9 @@ to create superuser
 python manage.py createsuperuser
 
 
+to add students application to the admin dashboard
+goto admin.py in students app.
+admin.site.register(Student)
 
 
 
