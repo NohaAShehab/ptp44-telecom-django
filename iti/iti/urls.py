@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from students.views import hello, aboutus, landing, students_list,student_info
 from tracks.views import  track_landing
+
+# to serve media files
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', views.home, name='home')
@@ -27,4 +31,5 @@ urlpatterns = [
     ## include url configuration for students app.
     path('students/', include('students.urls')),
     path('tracks/', include('tracks.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# serving files in media

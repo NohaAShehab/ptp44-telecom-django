@@ -133,7 +133,8 @@ def create(request):
 def create_std_modelform(request):
     form = StudentModelForm()
     if request.POST:
-        form = StudentModelForm(request.POST)
+        print(request.POST)
+        form = StudentModelForm(request.POST, request.FILES)
         if form.is_valid():
             std = form.save()
             url = reverse("students.index")  # accept urlname
@@ -148,7 +149,7 @@ def edit(request, id):
     student = get_object_or_404(Student, pk=id)
     form = StudentModelForm(instance=student)
     if request.method == "POST":
-        form = StudentModelForm(request.POST,instance=student )
+        form = StudentModelForm(request.POST, request.FILES,instance=student )
         if form.is_valid():
             student=form.save()
             url = reverse("students.index")  # accept urlname

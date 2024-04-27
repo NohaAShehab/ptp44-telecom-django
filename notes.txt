@@ -93,8 +93,23 @@ django forms
 
 
 
+###################3 how to upload image
+1- create folder with media media in the project
+
+2- add these lines to the settings.py
+import os
+MEDIA_URL='media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+3- to upload image
+--> change model to accept imagefield
+    image = models.ImageField(upload_to='students/images/', null=True, blank=True)
+
+but this raises error
+to fix it
+install package pillow
+pip install pillow
 
 
-
-
-
+to upload file
+you must use enctype='multipart-formdata'
