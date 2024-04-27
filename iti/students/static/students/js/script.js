@@ -1,3 +1,10 @@
+
+errors = document.getElementsByTagName('li')
+console.log(errors)
+for (var m=0 ; m < errors.length; m ++){
+    errors[m].style = 'color:red; font-weight: bold';
+}
+
 spans = document.querySelectorAll('span');
 for (var j = 0; j < spans.length; j++) {
     spans[j].classList.add('d-block');
@@ -28,7 +35,3 @@ for (var d =0; d < checkboxex.length; d++){
     checkboxex[d].classList.remove('form-control')
 }
 
-errors = document.getElementsByClassName('errorlist')
-for (var m=0 ; m < errors.length; m ++){
-    divs[m].style = 'color:red; font-weight: bold';
-}

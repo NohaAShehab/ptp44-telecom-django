@@ -83,26 +83,51 @@ def delete(request, id):
     return redirect(url)
 
 
+# def create(request):
+#     print(request)
+#     form = StudentForm()
+#     # request -> post ---> accept data then create new student
+#     if request.method == "POST":
+#         print(request.POST)
+#         student = Student()
+#         student.name = request.POST["name"]
+#         student.age = request.POST["age"]
+#         student.grade = request.POST["grade"]
+#         student.email=request.POST["email"]
+#         student.save()
+#         url = reverse("students.index")  # accept urlname
+#         return redirect(url)
+#         # return HttpResponse("student saved")
+#
+#     return render(request,
+#                   'students/create.html'
+#                 ,context={'form':form})
+#
+#
+#
+
 def create(request):
     print(request)
     form = StudentForm()
     # request -> post ---> accept data then create new student
     if request.method == "POST":
-        print(request.POST)
-        student = Student()
-        student.name = request.POST["name"]
-        student.age = request.POST["age"]
-        student.grade = request.POST["grade"]
-        student.email=request.POST["email"]
-        student.save()
-        url = reverse("students.index")  # accept urlname
-        return redirect(url)
-        # return HttpResponse("student saved")
-
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            print(cleaned_data)
+            # student = Student()
+            # student.name = cleaned_data["name"]
+            # student.age = cleaned_data["age"]
+            # student.grade = cleaned_data["grade"]
+            # student.email=cleaned_data["email"]
+            # student.save()
+            student = Student(**cleaned_data)
+            student.save()
+            url = reverse("students.index")  # accept urlname
+            return redirect(url)
     return render(request,
                   'students/create.html'
                 ,context={'form':form})
-
 
 
 
