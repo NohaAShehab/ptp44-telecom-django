@@ -25,3 +25,33 @@ class StudentForm(forms.Form):
             raise forms.ValidationError("Name must be between 3 and 100 characters")
 
         return name
+
+
+
+
+
+
+""" build from using model form ? """
+class StudentModelForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = '__all__'
+
+
+    # define your own validation
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        if len(name) <3 or len(name) > 100:
+            raise forms.ValidationError("Name must be between 3 and 100 characters")
+
+        return name
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,9 @@
 {% extends  'layouts/base.html' %}
 
 {% block content %}
+create_std_modelform
+    <a class="btn btn-primary" href="{% url 'create_std_modelform' %}"> Add new Student using model form  </a>
+
     <a class="btn btn-dark" href="{% url 'students.create' %}"> Add new Student </a>
     <h1 style="text-align: center"> All students from DB</h1>
 <!--    {{students}}-->
@@ -8,6 +11,7 @@
             <tr><td>ID</td> <td>Name</td> <td>Age</td> <td>Email</td>
                 <td>Grade</td>
                 <td> Show</td>
+                <td> Edit</td>
                 <td> Delete</td>
             </tr>
             {% for std in students %}
@@ -19,6 +23,8 @@
                     <td>{{std.grade}}</td>
                     <td>
                         <a class="btn btn-primary" href="{% url 'students.show' std.id%}"> Show</a></td>
+                    <td>
+                        <a class="btn btn-warning" href="{% url 'students.edit' std.id%}"> Edit</a></td>
                     <td>
                         <a class="btn btn-danger" href="{% url 'students.delete' std.id%}"> Delete</a></td>
                 </tr>

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import json
 
 from students.models import Student
-from students.forms import StudentForm
+from students.forms import StudentForm, StudentModelForm
 
 
 # Create your views here. #
@@ -130,8 +130,33 @@ def create(request):
                 ,context={'form':form})
 
 
+def create_std_modelform(request):
+    form = StudentModelForm()
+    if request.POST:
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            std = form.save()
+            url = reverse("students.index")  # accept urlname
+            return redirect(url)
 
 
+    return render(request, 'students/create_m_f.html',
+                  context={'form':form})
+
+
+def edit(request, id):
+    student = get_object_or_404(Student, pk=id)
+    form = StudentModelForm(instance=student)
+    if request.method == "POST":
+        form = StudentModelForm(request.POST,instance=student )
+        if form.is_valid():
+            student=form.save()
+            url = reverse("students.index")  # accept urlname
+            return redirect(url)
+
+
+    return render(request, 'students/edit.html',
+                  {'form': form})
 
 
 
