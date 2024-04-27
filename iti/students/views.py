@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponse
 import json
 
 from students.models import Student
+from students.forms import StudentForm
 
 
 # Create your views here. #
@@ -66,20 +67,41 @@ def index(request):
 
 
 def show(request, id):
-    student = Student.objects.get(id=id)
+    # student = Student.objects.get(id=id)
+    student = get_object_or_404(Student, pk=id)
     return render(request, 'students/show.html',
                   context={'student':student})
 
 
 
 def delete(request, id):
-    student = Student.objects.get(id=id)
+    # student = Student.objects.get(id=id)
+    student = get_object_or_404(Student, pk=id)
     student.delete()
     #
     url = reverse("students.index") # accept urlname
     return redirect(url)
 
 
+def create(request):
+    print(request)
+    form = StudentForm()
+    # request -> post ---> accept data then create new student
+    if request.method == "POST":
+        print(request.POST)
+        student = Student()
+        student.name = request.POST["name"]
+        student.age = request.POST["age"]
+        student.grade = request.POST["grade"]
+        student.email=request.POST["email"]
+        student.save()
+        url = reverse("students.index")  # accept urlname
+        return redirect(url)
+        # return HttpResponse("student saved")
+
+    return render(request,
+                  'students/create.html'
+                ,context={'form':form})
 
 
 

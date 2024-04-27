@@ -63,8 +63,19 @@ Student.objects.filter(name='ahmed') # return queryset
 select * from students where id=1;
 Student.objects.get(id=1)
 
+# to create new object
+ In [15]: std = Student()
+In [16]: std.name='abc'
+In [17]: std.age =33
+In [18]: std.email='abc@gmail.com'
+In [19]: std.grade = 10
+std.save()
 
 
+I will ask django to create form ???
+django forms
+
+1- inside your app create forms.py
 
 
 

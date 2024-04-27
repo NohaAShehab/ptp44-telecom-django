@@ -1,6 +1,7 @@
 {% extends  'layouts/base.html' %}
 
 {% block content %}
+    <a class="btn btn-dark" href="{% url 'students.create' %}"> Add new Student </a>
     <h1 style="text-align: center"> All students from DB</h1>
 <!--    {{students}}-->
  <table class="table">
