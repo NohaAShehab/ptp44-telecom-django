@@ -1,0 +1,10 @@
+
+1- create model Book
+    (id , title, no_of_pages, price, created_at,
+    updated_at , image)
+
+2- create migration files for this model
+
+3- perform all crud operations
+create/ list all/ update/ delete
+
