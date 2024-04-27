@@ -1,0 +1,27 @@
+{% extends  'layouts/base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center"> All students from DB</h1>
+<!--    {{students}}-->
+ <table class="table">
+            <tr><td>ID</td> <td>Name</td> <td>Age</td> <td>Email</td>
+                <td>Grade</td>
+                <td> Show</td>
+                <td> Delete</td>
+            </tr>
+            {% for std in students %}
+                <tr>
+                    <td>{{std.id}}</td>
+                      <td>{{std.name}}</td>
+                      <td>{{std.age}}</td>
+                      <td>{{std.email}}</td>
+                    <td>{{std.grade}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'students.show' std.id%}"> Show</a></td>
+                    <td>
+                        <a class="btn btn-danger" href="{% url 'students.delete' std.id%}"> Delete</a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+{% endblock %}

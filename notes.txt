@@ -43,6 +43,31 @@ to add students application to the admin dashboard
 goto admin.py in students app.
 admin.site.register(Student)
 
+# model queryset api
+https://docs.djangoproject.com/en/5.0/ref/models/querysets/
+Student.objects.all()
+====> select * from students
+
+to try this>>
+python manage.py shell --> this will open interactive shell 00> deal with db
+
+to use modern shell
+pip install ipython
+
+
+# filter objects
+select * from students where name='ahmed';
+Student.objects.filter(name='ahmed') # return queryset
+
+# get one object
+select * from students where id=1;
+Student.objects.get(id=1)
+
+
+
+
+
+
 
 
 

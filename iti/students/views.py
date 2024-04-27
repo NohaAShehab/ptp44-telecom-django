@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
-
 import json
+
+from students.models import Student
 
 
 # Create your views here. #
@@ -52,6 +53,36 @@ def students_landing(request):
     # return template ?
     return render(request, "students/landing.html",
                   context = {"name":"noha", "students":students})
+
+
+
+
+# define function index --> get data from db
+
+def index(request):
+    students = Student.objects.all()
+    return  render(request, 'students/index.html',
+                   context={'students':students})
+
+
+def show(request, id):
+    student = Student.objects.get(id=id)
+    return render(request, 'students/show.html',
+                  context={'student':student})
+
+
+
+def delete(request, id):
+    student = Student.objects.get(id=id)
+    student.delete()
+    #
+    url = reverse("students.index") # accept urlname
+    return redirect(url)
+
+
+
+
+
 
 
 
