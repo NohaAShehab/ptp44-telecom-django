@@ -78,10 +78,20 @@ WSGI_APPLICATION = 'iti.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # default db configuration
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_telecom',
+        'USER': 'telecom',
+        'PASSWORD': 'iti',
+        'HOST':'localhost',
+        'PORT':5432
     }
 }
 

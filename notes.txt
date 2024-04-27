@@ -4,3 +4,58 @@ to serve static images / css/ js
 
 after adding static folder to the application you must
 restart the server
+
+---------------------------------------------
+connect project to postgres database
+
+1- first you need to install connector between postgres and django(python)
+https://pypi.org/project/psycopg2/
+
+2- prepare connection credits
+    username, password, dbname ,port , host
+
+3- goto settings.py add the configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_telecom',
+        'USER': 'telecom',
+        'PASSWORD': 'iti',
+        'HOST':'localhost',
+        'PORT':5432
+    }
+}
+
+4- use model --> to create our first table --> students
+https://docs.djangoproject.com/en/5.0/topics/db/models/
+
+
+5- create and apply migrations
+python manage.py makemigrations
+python manage.py migrate
+
+6- use admin dashboard
+to create superuser
+python manage.py createsuperuser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
